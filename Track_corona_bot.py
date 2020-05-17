@@ -77,12 +77,6 @@ if __name__ == '__main__':
 			logging.warning(event)
 			events_info += '\n - ' + event.replace("'", "")
 
-		if isChanged:
-			for state in cur_data:
-				past_data[state]['latest'] = cur_data[state][current_time]
-				past_data[state][current_time] = cur_data[state][current_time]
-			save(past_data)
-
 		table = tabulate(row, headers= t_header, tablefmt='psql')
 
 	except Exception as e:
